@@ -5,47 +5,47 @@
 class Jenkinsmaster < Formula
   desc "A CLI tool to manage Jenkins master"
   homepage "https://github.com/mamrezb/jenkinsmaster-cli"
-  version "1.0.0"
+  version "1.1.0"
 
   depends_on "git"
 
   on_macos do
-    on_intel do
-      url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.0.0/jenkinsmaster_1.0.0_darwin_amd64"
-      sha256 "fd51e77d9b9d76db0d2dfb21b40127dd865f843108f2c160877b0905fa94b98f"
+    if Hardware::CPU.intel?
+      url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.1.0/jenkinsmaster_1.1.0_darwin_amd64"
+      sha256 "4e11f7e4fb8c58b16931333cefe1001139b45dc7205a6a156405da4ff1e42b11"
 
       def install
-        bin.install "jenkinsmaster_1.0.0_darwin_amd64" => "jenkinsmaster"
+        bin.install "jenkinsmaster_1.1.0_darwin_amd64" => "jenkinsmaster"
       end
     end
-    on_arm do
-      url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.0.0/jenkinsmaster_1.0.0_darwin_arm64"
-      sha256 "39b2bb9e5ba212affdae3d50ba06a8e28f0f24d9df36dc19569fd70872905723"
+    if Hardware::CPU.arm?
+      url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.1.0/jenkinsmaster_1.1.0_darwin_arm64"
+      sha256 "ed61331839d0a6736c9f57e2229089e16a780c21b3fcc710e1983247b6d1c6f2"
 
       def install
-        bin.install "jenkinsmaster_1.0.0_darwin_arm64" => "jenkinsmaster"
+        bin.install "jenkinsmaster_1.1.0_darwin_arm64" => "jenkinsmaster"
       end
     end
   end
 
   on_linux do
-    on_intel do
+    if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.0.0/jenkinsmaster_1.0.0_linux_amd64"
-        sha256 "85fbb6e2b59be495e964bb41688ecd06218f2df801f3a8984e04e3b91625ba49"
+        url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.1.0/jenkinsmaster_1.1.0_linux_amd64"
+        sha256 "29f863b7e6494340e4fc367f9d0781952a691917f5cddf3b05fdac23634152d3"
 
         def install
-          bin.install "jenkinsmaster_1.0.0_linux_amd64" => "jenkinsmaster"
+          bin.install "jenkinsmaster_1.1.0_linux_amd64" => "jenkinsmaster"
         end
       end
     end
-    on_arm do
+    if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.0.0/jenkinsmaster_1.0.0_linux_arm64"
-        sha256 "b37738ebc57118900d7bd919766a4048dcfab58977e853a629aa6c6bbdb5e4e6"
+        url "https://github.com/mamrezb/jenkinsmaster-cli/releases/download/v1.1.0/jenkinsmaster_1.1.0_linux_arm64"
+        sha256 "f19e20b044656543a1fbdaed62a8ac4a672b5dd9544df162b09742431d80950b"
 
         def install
-          bin.install "jenkinsmaster_1.0.0_linux_arm64" => "jenkinsmaster"
+          bin.install "jenkinsmaster_1.1.0_linux_arm64" => "jenkinsmaster"
         end
       end
     end
